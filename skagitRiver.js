@@ -2,6 +2,7 @@
 //  JS Object literal, and prototype example
 
 
+
 function River( name, location, length, source, estuary) {
    if(name  === "" || location === "" || length  === "" || source === "" || estuary === "") {
       throw "No name or location or length or source or estuary";
@@ -36,8 +37,12 @@ var myRivers = (function () {
 	    allRivers += getRiver(i).toString() + "\n";
 	 }
 	 return allRivers;
-      }
-
+      },
+      getRiverStats: function(rname) {
+	 river.filter(function (river, rname) {
+	    return river.name == rname 
+	 }
+      }	 
    };
 })();
 
@@ -51,3 +56,5 @@ myRivers.riverNew(new River("Nisqually", "Central West Washington", "81  miles",
 
 console.log("Rivers: ")
 console.log(myRivers.getRivers());
+console.log(myRivers.getRiverStats("Skagit"));
+
