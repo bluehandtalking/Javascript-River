@@ -2,6 +2,9 @@
 //  JS Object literal, and prototype example
 
 
+function isRiver(element, index, array) {
+  return (element.name == "Skagit");
+}
 
 function River( name, location, length, source, estuary) {
    if(name  === "" || location === "" || length  === "" || source === "" || estuary === "") {
@@ -38,10 +41,9 @@ var myRivers = (function () {
 	 }
 	 return allRivers;
       },
-      getRiverStats: function(rname) {
-	 river.filter(function (river, rname) {
-	    return river.name == rname 
-	 }
+      getRiverStats: function() {
+	 var result = rivers.filter(isRiver)
+	 console.log(result)
       }	 
    };
 })();
@@ -54,7 +56,6 @@ myRivers.riverNew(new River("Stillaguamish", "NorthWest Washington", "67 miles",
 
 myRivers.riverNew(new River("Nisqually", "Central West Washington", "81  miles", "Nisqually Glacier", "Puget Sound"));
 
-console.log("Rivers: ")
 console.log(myRivers.getRivers());
-console.log(myRivers.getRiverStats("Skagit"));
+console.log(myRivers.getRiverStats("Nisqually"));
 
