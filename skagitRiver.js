@@ -26,26 +26,26 @@ River.prototype.toString = function () {
 };
 
 var myRivers = (function () {
-   var rivers = [];
-   getRiver = function(r) {
-      return rivers[r];
-   }; 
-   return {
-      riverNew: function(river) {
-	 rivers.push(river);
-      },
-      getRivers: function() {
-	 var allRivers = "";
-	 for (var i = 0; i < rivers.length; i++) {
-	    allRivers += getRiver(i).toString() + "\n";
-	 }
-	 return allRivers;
-      },
-      getRiverStats: function() {
-	 var result = rivers.filter(isRiver)
-	 console.log(result)
-      }	 
-   };
+  var rivers = [];
+  getRiver = function(r) {
+    return rivers[r];
+  }; 
+  return {
+    riverNew: function(river) {
+      rivers.push(river);
+    },
+    getRivers: function() {
+      var allRivers = "";
+      for (var i = 0; i < rivers.length; i++) {
+        allRivers += getRiver(i).toString() + "\n";
+      }
+      return allRivers;
+    },
+    getRiverStats: function() {
+      var result = rivers.filter(isRiver)
+        console.log(result)
+    }	 
+  };
 })();
 
 //  Test
