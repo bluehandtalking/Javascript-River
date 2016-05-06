@@ -6,6 +6,7 @@ function isRiver(element, index, array) {
   return (element.name == "Skagit");
 }
 
+// Constructor function for river
 function River( name, location, length, source, estuary) {
    if(name  === "" || location === "" || length  === "" || source === "" || estuary === "") {
       throw "No name or location or length or source or estuary";
@@ -20,16 +21,17 @@ function River( name, location, length, source, estuary) {
 }
 
 
-
 River.prototype.toString = function () {
    return "River: " + this.name + ", " + this.location + ", " + this.length + ", " + this.source + ", " + this.estuary
 };
 
 var myRivers = (function () {
+  // private
   var rivers = [];
   getRiver = function(r) {
     return rivers[r];
   }; 
+  // public API
   return {
     riverNew: function(river) {
       rivers.push(river);
